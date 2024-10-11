@@ -4,7 +4,7 @@
  * $ npm install @google/generative-ai
  */
 
-const {
+  const {
     GoogleGenerativeAI,
     HarmCategory,
     HarmBlockThreshold,
@@ -25,7 +25,7 @@ const {
     responseMimeType: "text/plain",
   };
   
-  async function run(prompt) {
+  async function runChat(prompt) {
     const chatSession = model.startChat({
       generationConfig,
    // safetySettings: Adjust safety settings
@@ -38,4 +38,4 @@ const {
     console.log(result.response.text());
   }
   
-  run();
+  export default runChat;
