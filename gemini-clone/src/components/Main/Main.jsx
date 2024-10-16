@@ -1,3 +1,4 @@
+/* eslint-disable react/no-danger-with-children */
 import React, { useContext } from 'react'
 import './Main.css'
 import { assets } from '../../assets/assets'
@@ -14,28 +15,44 @@ const Main = () => {
         <img src={assets.user_icon} alt='' />
       </div>
       <div className='main-container'>
-        <div className='greet'>
+
+        {!showResult
+        ?<>
+          <div className='greet'>
             <p><span>Hello, Dev</span></p>
             <p>How can I help you today?</p>
+          </div>
+          <div className='cards'>
+            <div className='card'>
+              <p>Suggest beautiful places to see for a road trip</p>
+              <img src={assets.compass_icon} alt='' />
+            </div>
+            <div className='card'>
+              <p>What is the difference between git and github?</p>
+              <img src={assets.bulb_icon} alt='' />
+            </div>
+            <div className='card'>
+              <p>Python web developer roadmap with youtube channels</p>
+              <img src={assets.code_icon} alt='' />
+            </div>
+            <div className='card'>
+              <p>How to make goat meat jollof rice</p>
+              <img src={assets.message_icon} alt='' />
+            </div>
+          </div>
+        </>
+        :<div className='result'>
+          <div className='results-title'>
+            <img src={assets.user_icon} alt='' />
+            <p>{recentPrompt}</p>
+          </div>
+          <div className='result-data'>
+            <img src={assets.gemini_icon} alt=''/>
+            <p dangerouslySetInnerHTML={{__html:resultData}}></p>
+          </div>
         </div>
-        <div className='cards'>
-            <div className='card'>
-                <p>Suggest beautiful places to see for a road trip</p>
-                <img src={assets.compass_icon} alt='' />
-            </div>
-            <div className='card'>
-                <p>What is the difference between git and github?</p>
-                <img src={assets.bulb_icon} alt='' />
-            </div>
-            <div className='card'>
-                <p>Python web developer roadmap with youtube channels</p>
-                <img src={assets.code_icon} alt='' />
-            </div>
-            <div className='card'>
-                <p>How to make goat meat jollof rice</p>
-                <img src={assets.message_icon} alt='' />
-            </div>
-        </div>
+        }
+
 
         <div className='main-bottom'>
            <div className='search-box'>
