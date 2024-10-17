@@ -13,7 +13,7 @@ const Contextprovider = (props) => {
     const [resultData, setResultData] = useState("");
 
     const delapPara = (index, nextWord) =>{
-
+        
     }
 
     const onSent = async (prompt) => {
